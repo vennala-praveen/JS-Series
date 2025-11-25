@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+
+    <h2>To-do List</h2>
+    <input type="text" class="todo-txt" placeholder="Enter your To-do name">
+    <button class="todo-btn" onclick="addtodo()">Add</button>
+    <script>
+
+        // Another type of value, Represents set of values
+        // const arr = [10, 20, 30, 40, 50];
+        // arr[3] = 300;
+        // console.log(arr);
+        const todoArray = [];
+        function addtodo(){
+            const inputEle = document.querySelector('.todo-txt');
+            const inputValue = inputEle.value;
+            todoArray.push(inputValue);
+            console.log(todoArray);
+            inputEle.value = "";
+
+        }
+
+
+
+    </script>
+</body>
+</html>

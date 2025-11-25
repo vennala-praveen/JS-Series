@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Color Picker</title>
+  <style>
+    body { text-align: center; padding: 50px; background-color: beige; }
+    #color-box { width: 200px; height: 200px; margin: 20px auto; border: 2px solid #000; }
+  </style>
+</head>
+<body>
+  <h2>Pick a Color</h2>
+  <input type="color" id="color-input">
+  <div id="color-box"></div>
+
+  <script>
+    const colorInput = document.getElementById('color-input');
+    const box = document.getElementById('color-box');
+
+    colorInput.addEventListener('input', () => {
+      box.style.backgroundColor = colorInput.value;
+    });
+  </script>
+</body>
+</html>

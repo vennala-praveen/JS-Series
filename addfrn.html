@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Friend Request</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            background-color: black;
+            border-radius: 50%;
+            margin-top: 200px;
+        }
+
+        #card{
+            background-color: #fff;
+            border-radius: 10px;
+            text-align: center;
+            padding: 30px 50px;
+        }
+
+        img{
+            border-radius: 50%;
+            object-fit: cover;
+            height: 150px;
+            width: 150px;
+        }
+
+        button{
+            padding: 5px 15px;
+            margin-top: 5px;
+        }
+
+        h4{
+            color: red;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="card">
+            <img src="https://imgs.search.brave.com/GS8liuD4tvTIo7Ia41yq0uVLIqW8wR7pTlZcvjQkTOQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9ibG9n/Z2VyLmdvb2dsZXVz/ZXJjb250ZW50LmNv/bS9pbWcvYi9SMjl2/WjJ4bC9BVnZYc0Vo/SXgzazVWWk9CUGVF/cEFjRjhPZm9Ndzhs/bGExUFBVSS1tMnlE/MlFpOXQwNDlpVnQw/STRkN0xWZWRqT3pX/ZU1ienllRG1zdnRP/MHU4cER0cTVhZ0Nq/clVYNmhfLWJkQS14/VXdkY2x5YXJQTV83/UGJPV093bGxyNk1s/RktDZmNGYmxMRDkz/QlAzQ20ybFl4TGRV/QVFpcmk2M3JGa0NL/TjZ2SElabW9JUHFC/dHpDbC1uVE9xUFNS/UXNiUXVsTlhpL3Mx/NjAwMC1ydy9zb2xv/LWxldmVsaW5nLXBm/cC02LnBuZw" alt="image not found">
+            <h2>Sung Jinwoo</h2>
+            <h4>Hunter</h4>
+            <button>Add Friend</button>
+        </div>
+    </div>
+
+
+    <script>
+
+        var btn = document.querySelector('button');
+        var h4 = document.querySelector('h4');
+
+        var a = 0;
+        btn.addEventListener('click', function(){
+            if(a == 0){
+                h4.innerHTML = 'Friend'
+                h4.style.color = 'green'
+                btn.innerHTML = 'Remove Friend'
+                a = 1
+            }else{
+                h4.innerHTML = 'Hunter'
+                h4.style.color = 'red'
+                btn.innerHTML = 'Add Friend'
+                a = 0
+            }
+        })
+    </script>
+</body>
+</html>

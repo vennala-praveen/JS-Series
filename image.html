@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            line-height: 0;
+        }
+
+        body{
+            background: #ccc;
+            text-align: center;
+        }
+
+        .container{
+            width: 600px;
+            margin: 20px auto;
+            border: 5px solid white;
+            overflow: auto;
+        }
+        .head{
+            text-align: center;
+            color: #000;
+            margin: 50px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 600;
+            font-style: italic;
+            font-size: 2rem; 
+            
+        }
+
+        .thumb{
+            width: 200px;
+            float: left;
+            border: 2px solid white;
+            box-sizing: border-box;
+            transition: 0.3s all ease-in-out;
+        }
+
+        .thumb:hover{
+            opacity: 0.5;
+            cursor: pointer ;
+        }
+
+
+        @keyframes fade {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade{
+            opacity: 0;
+            animation: fade 0.5s forwards;
+        }
+
+        .active{
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 class="head">Images Gallery</h2>
+    <div class="container">
+        <img src="https://images.unsplash.com/photo-1652170114349-05ded11e445e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQ4fGlVSXNuVnRqQjBZfHxlbnwwfHx8fHw%3D" alt="Crash" class="jumbo">
+        <div class="thumbnail">
+            <img src="https://images.unsplash.com/photo-1652170114349-05ded11e445e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQ4fGlVSXNuVnRqQjBZfHxlbnwwfHx8fHw%3D" alt="Crash" class="thumb">
+            <img src="https://plus.unsplash.com/premium_photo-1736194027689-784ea2211904?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzMHx8fGVufDB8fHx8fA%3D%3D" alt="Crash" class="thumb">
+            <img src="https://images.unsplash.com/photo-1761839258671-6495fdc188b3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyMnx8fGVufDB8fHx8fA%3D%3D" alt="Crash" class="thumb">
+            <img src="https://images.unsplash.com/photo-1763591342997-7b60f0437e72?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE1fEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D" alt="Crash" class="thumb">
+            <img src="https://plus.unsplash.com/premium_photo-1763669872286-8e4180ab916c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8Ym84alFLVGFFMFl8fGVufDB8fHx8fA%3D%3D" alt="Crash" class="thumb">
+            <img src="https://images.unsplash.com/photo-1742219066655-3839ffe09214?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQ1fGlVSXNuVnRqQjBZfHxlbnwwfHx8fHw%3D" alt="Crash" class="thumb">
+            <img src="https://images.unsplash.com/photo-1733826996743-b21ac2ddbaee?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM2fHFQWXNEenZKT1ljfHxlbnwwfHx8fHw%3D" alt="Crash" class="thumb">
+            <img src="https://images.unsplash.com/photo-1763011156662-7b29da8b52bf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDcxfHFQWXNEenZKT1ljfHxlbnwwfHx8fHw%3D" alt="Crash" class="thumb">
+            <img src="https://images.unsplash.com/photo-1756187793625-4a29fef1f4f8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDEwN3xpVUlzblZ0akIwWXx8ZW58MHx8fHx8" alt="Crash" class="thumb">
+            
+        </div>
+    </div>
+
+    <script>
+        const container = document.querySelector('.container');
+        const jumbo = document.querySelector('.jumbo');
+        const thumbs = document.querySelectorAll('.thumb');
+        container.addEventListener('click', function(e){
+
+
+            if( e.target.className == 'thumb' ) {
+
+                jumbo.src = e.target.src;
+                jumbo.classList.add('fade');
+                setTimeout(function(){
+                    jumbo.classList.remove('fade')
+                }, 300)
+
+                thumbs.forEach(function(thumb){
+                    // if(thumb.classList.contains('active')){
+                    //     thumb.classList.remove('active')
+                    // }
+                    thumb.className = 'thumb';
+                });
+
+                e.target.classList.add('active');
+                
+            }
+
+        });
+    </script>
+</body>
+</html>
