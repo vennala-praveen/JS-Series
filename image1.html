@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Images</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+            background-color: black;
+        }
+
+        h2{
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+        }
+        img {
+            display: flex;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 18px 22px;
+            border: none;
+            background: #0b5fff;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-left: 300px;
+            
+        }
+        button:hover { 
+            background: #0747c7; 
+        }
+
+        button:active{
+            scale: 0.95;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Random Images</h2>
+        <img id="image" src="https://cdn.pixabay.com/photo/2022/12/01/04/40/backpacker-7628303_1280.jpg" alt="image not found" width="700" height="500">
+        <button>Click Me</button>
+    </div>
+
+    <script>
+        const images = [
+            'https://cdn.pixabay.com/photo/2022/12/01/04/40/backpacker-7628303_1280.jpg',
+            'https://cdn.pixabay.com/photo/2023/11/18/19/06/futuristic-home-8397004_1280.jpg',
+            'https://cdn.pixabay.com/photo/2024/05/26/15/27/anime-8788959_1280.jpg',
+            'https://cdn.pixabay.com/photo/2022/12/01/04/42/ai-generated-7628305_1280.jpg',
+            'https://cdn.pixabay.com/photo/2024/05/09/08/07/ai-generated-8750166_1280.jpg',
+            'https://cdn.pixabay.com/photo/2022/06/20/20/36/car-7274571_1280.jpg',
+            'https://cdn.pixabay.com/photo/2022/11/05/19/56/bachalpsee-7572681_1280.jpg',
+            'https://cdn.pixabay.com/photo/2024/11/17/04/52/chilli-9202873_1280.jpg',
+            'https://cdn.pixabay.com/photo/2021/08/13/12/51/sea-6543041_1280.jpg',
+            'https://cdn.pixabay.com/photo/2016/08/03/11/53/background-1566507_1280.jpg',
+            'https://cdn.pixabay.com/photo/2023/08/28/16/48/dubai-8219542_1280.jpg'
+        ];
+
+        const btn = document.querySelector("button");
+        const img = document.querySelector("#image");
+
+        
+        // window.onload = () => {
+        //         const random = Math.floor(Math.random() * images.length);
+        //         img.src = images[random];
+        //     };
+
+            btn.addEventListener("click", () => {
+                const random = Math.floor(Math.random() * images.length);
+                img.src = images[random];
+            });
+    </script>
+
+</body>
+</html>
