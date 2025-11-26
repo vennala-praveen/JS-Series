@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Dice Roll</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 300px;
+            background-image: url('https://c4.wallpaperflare.com/wallpaper/957/458/449/black-and-white-board-board-game-chance-wallpaper-preview.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+        }
+
+
+        p{
+            padding: 10px;
+            font-size: 4rem;
+            color: #fff;
+        }
+
+        button{
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: blue;
+        }
+
+        button:hover{
+            color: rgb(247, 143, 8);
+        }
+
+        button:active{
+            scale: 0.95;
+        }
+        
+    </style>
+</head>
+<body>
+
+        <p id="result">🎲 Result will appear here</p>
+        <button id="rollBtn">Roll Dice</button>
+
+    <script>
+        document.getElementById("rollBtn").addEventListener("click", function() {
+        let dice = Math.floor(Math.random() * 6) + 1;
+
+        document.getElementById("result").textContent = "🎲 You rolled: " + dice;
+        });
+    </script>
+
+</body>
+</html>
