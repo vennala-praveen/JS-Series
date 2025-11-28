@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create random images</title>
+    <style>
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative; 
+            overflow: hidden;
+        }
+
+        button{
+            background-color: blue;
+            color: gold;
+            font-size: 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <button>Create Element</button>
+
+    <script>
+        var btn = document.querySelector('button');
+
+        function show_img(src, width, height, alt){
+            var image = document.createElement("img");
+            image.src = src;
+            image.width = width;
+            image.height = height;
+            image.alt = alt;
+
+            image.style.position = 'absolute';
+            image.style.top = (document.body.clientHeight - height) * Math.random() + 'px';
+            image.style.left = (document.body.clientWidth - width) * Math.random() + 'px';
+            image.style.borderRadius = '30px';
+
+            document.body.appendChild(image);
+        }
+
+        btn.addEventListener('click', ()=> {
+            show_img("https://imgs.search.brave.com/N0rWvTUmaHdOejG0BqEEMTaDsg-zl9jCQPiYZKtpQOI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9hdmF0/YXJmaWxlcy5hbHBo/YWNvZGVycy5jb20v/Mzc3L3RodW1iLTM1/MC0zNzc0MzYud2Vi/cA", 200, 200, "Random Image");
+            // console.log('Hello');
+        });
+    </script>
+</body>
+</html>
