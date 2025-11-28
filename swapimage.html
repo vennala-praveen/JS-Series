@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swapping the Image</title>
+    <style>
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            gap: 20px;
+            background-color: black;
+        }
+
+        img{
+            object-fit: cover;
+            height: 300px;
+            width: 250px;
+            border-radius: 30px;
+            margin-top: 20px;
+        }
+
+        button{
+            margin-top: 30px;
+            border: none;
+            background-color: blue;
+            color: #fff;
+            font-size: 2rem;
+            border-radius: 10px;
+        }
+
+        button:active{
+            scale: 0.95;
+        }
+
+        
+    </style>
+</head>
+<body>
+    
+    <img id="img1" src="https://images6.alphacoders.com/100/thumbbig-1001037.webp" alt="image not found">
+    <img id="img2" src="https://images3.alphacoders.com/946/thumb-440-94605.webp" alt="image not found">
+    <button>Swap Image</button> 
+    <img id="img3" src="https://artfiles.alphacoders.com/161/thumb-800-161159.webp" alt="image not found"> 
+    <img id="img4" src="https://avatarfiles.alphacoders.com/375/thumb-350-375109.webp" alt="image not found"> 
+
+
+    <script>
+        var img1 = document.querySelector('#img1');
+        var img2 = document.querySelector('#img2');
+        var img3 = document.querySelector('#img3');
+        var img4 = document.querySelector('#img4');
+
+        var btn = document.querySelector('button');
+
+        btn.addEventListener('click', () => {
+            var image1 = img1.getAttribute('src')
+            var image2 = img2.getAttribute('src')
+            var image3 = img3.getAttribute('src')
+            var image4 = img4.getAttribute('src')
+
+            img1.setAttribute('src', image4)
+            img2.setAttribute('src', image1)
+            img3.setAttribute('src', image2)
+            img4.setAttribute('src', image3)
+
+        });
+
+    </script>
+</body>
+</html>
