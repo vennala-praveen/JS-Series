@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse - In - Out</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: none;
+            flex-direction: column;
+        }
+
+        .hover-area{
+            width: 400px;
+            height: 200px;
+            background-color: #f0f0f0;
+            border: 2px solid #333;
+            margin-top: 160px;
+            color: #333;
+            transition: background-color 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .custom-cursor{
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: red;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s linear, background-color 0.3s;
+        }
+
+        .hover-img{
+            width: 300px;
+            height: auto;
+            display: none; 
+            margin-top: 20px;
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+<body>
+        <div class="hover-area">
+            Hover over me to see the custom cursor effect<br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mouse-enter color is Blue<br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mouse-leave color is Red
+        </div>
+        
+        <img src="https://avatarfiles.alphacoders.com/366/thumb-350-366450.webp" 
+             alt="Hover Image" class="hover-img">
+        <div class="custom-cursor"></div>
+
+    <script>
+        const hoverArea = document.querySelector('.hover-area');
+        const customCursor = document.querySelector('.custom-cursor');
+        const hoverImg = document.querySelector('.hover-img');
+
+        document.addEventListener('mousemove', (e) => {
+            customCursor.style.left = `${e.clientX}px`;
+            customCursor.style.top = `${e.clientY}px`;
+        });
+
+        hoverArea.addEventListener('mouseenter', () => {
+            customCursor.style.backgroundColor = 'blue';
+            hoverArea.style.backgroundColor = '#f0ede5';
+        });
+
+        hoverArea.addEventListener('mouseleave', () => {
+            customCursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            customCursor.style.backgroundColor = 'red';
+            hoverArea.style.backgroundColor = '#f0f0f0';
+        });
+
+        
+        hoverImg.addEventListener('mouseenter', () => {
+            hoverImg.style.display = 'block'; 
+        });
+
+        hoverImg.addEventListener('mouseleave', () => {
+            hoverImg.style.display = 'none'; 
+        });
+
+        
+        hoverArea.addEventListener('mouseenter', () => {
+            hoverImg.style.display = 'block';
+        });
+
+        hoverArea.addEventListener('mouseleave', () => {
+            hoverImg.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
