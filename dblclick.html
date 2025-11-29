@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double click event</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+
+        h3{
+            font-family: Arial, Helvetica, sans-serif;
+            font-style: italic;
+            font-size: 2rem;
+            margin-top: 100px;
+        }
+        .post{
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            text-align: center; 
+        }
+
+        img{
+            height: 500px;
+            width: 300px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        
+        .overlay-text{
+            position: absolute;
+            bottom: 130px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+        }
+
+        
+        /* .overlay-text-3d{
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff0000;
+            text-shadow: 
+                1px 1px 0 #000,
+                2px 2px 0 #000,
+                3px 3px 0 #000;
+        } */
+
+        .like-info{
+            display: block;
+            margin-top: 15px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .heart-icon{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            color: red;
+            font-size: 4rem;
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .heart-icon.liked{
+            transform: translate(-50%, 30%) scale(2);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="post">
+        <h3>Using dblclick (Event) and setTimeout</h3>
+        <img src="https://mfiles.alphacoders.com/101/thumb-350-1015729.jpg" alt="Post Image">
+        
+        
+        <div class="overlay-text"> Sukuna (Jujutsu Kaisen)</div> 
+        <!-- OR -->
+        <!-- <div class="overlay-text-3d">Sukuna (JJK)</div> -->
+
+        <div class="heart-icon">&#10084;</div>
+        <span class="like-info">Likes: <span id="like-count">0</span></span>
+    </div>
+
+    <script>
+        const post = document.querySelector('.post');
+        const heartIcon = document.querySelector('.heart-icon');
+        const likeCountEle = document.getElementById('like-count');
+
+        let likeCount = 0;
+
+        post.addEventListener('dblclick', () => {
+            likeCount++;
+            likeCountEle.textContent = likeCount;
+
+            heartIcon.classList.add('liked');
+
+            setTimeout(() => {
+                heartIcon.classList.remove('liked');
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
