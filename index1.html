@@ -1,44 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOUBLE CLICK Event</title>
-    <style>
-        body{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
+  <meta charset="UTF-8">
+  <title>Food Grid Interaction</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;   
+      align-items: center;  
+      flex-direction: column;     
+      min-height: 100vh;         
+    }
 
-        img{
-            margin-top: 15%;
-        }
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 20px;
+    }
 
-    </style>
+    .food-item img {
+      width: 150px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s;  
+    }
+
+    .food-item img:hover {
+      transform: scale(1.05);
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 2rem;
+      color: red;
+      pointer-events: none;
+      animation: floatUp 1s ease-out forwards;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-50px); opacity: 0; }
+    }
+
+    #info-card {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: opacity 0.3s;
+    }
+
+    .hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
-    <img id="post" src="https://avatarfiles.alphacoders.com/366/thumb-350-366450.webp" width="300" />
 
-    <script>
-        const post = document.getElementById("post");
+  <h2>🍔 Food Grid</h2>
+  <div class="food-grid">
+    <div class="food-item"><img src="https://picfiles.alphacoders.com/350/thumb-1920-350606.jpg" alt="Pizza"></div>
+    <div class="food-item"><img src="https://images2.alphacoders.com/135/thumb-440-1353005.webp" alt="Burger"></div>
+    <div class="food-item"><img src="https://images5.alphacoders.com/134/thumb-440-1341443.webp" alt="Sushi"></div>
+    <div class="food-item"><img src="https://images5.alphacoders.com/134/thumb-440-1341443.webp" alt="Salad"></div>
+  </div>
 
-        post.addEventListener("dblclick", () => {
-            const heart = document.createElement("div");
-            heart.innerHTML = "❤️";
-            heart.style.position = "absolute";
-            heart.style.top = "50%";
-            heart.style.left = "50%";
-            heart.style.transform = "translate(-50%, -50%)";
-            heart.style.fontSize = "80px";
-            document.body.appendChild(heart);
+  <div id="info-card" class="hidden"></div>
 
-            // Remove heart after 2 second
-            setTimeout(() => {
-            heart.remove();
-            }, 2000);
-        });
-    </script>
+  <script>
+    const foodItems = document.querySelectorAll(".food-item img");
+    const infoCard = document.getElementById("info-card");
+
+    foodItems.forEach(img => {
+      
+      img.addEventListener("dblclick", (e) => {
+        
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = e.pageX + "px";
+        heart.style.top = e.pageY + "px";
+        document.body.appendChild(heart);
+
+        
+        setTimeout(() => heart.remove(), 2000);
+
+        
+        infoCard.innerHTML = `
+          <h3>${img.alt}</h3>
+          <p>Delicious ${img.alt} with fresh ingredients.</p>
+        `;
+        infoCard.classList.remove("hidden");
+      });
+
+      
+      img.addEventListener("mouseleave", () => {
+        setTimeout(() => {
+          infoCard.classList.add("hidden");
+        }, 500);
+      });
+    });
+  </script>
+
 </body>
 </html>
