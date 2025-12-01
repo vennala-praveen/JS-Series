@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Card</title>
+    <style>
+            body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            }
+            .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            }
+            .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            }
+            .card:hover {
+            transform: scale(1.05);
+            }
+            .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            }
+            .card h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+            color: #333;
+            }
+            .card p {
+            margin: 0 0 10px;
+            color: #777;
+            }
+    </style>
+</head>
+<body>
+    
+    <div class="container" id="output"></div>
+    <script>
+
+        var array = [
+            {
+                image: "https://images3.alphacoders.com/138/thumb-440-1383735.webp",
+                username: "Sung Jinwoo",
+                age: 27
+            },
+            
+            {
+                image: "https://mfiles.alphacoders.com/100/thumb-350-1007437.jpeg",
+                username: "Gojo Satoru",
+                age: 25
+            },
+            
+            {
+                image: "https://avatarfiles.alphacoders.com/341/thumb-350-341398.webp",
+                username: "Nagi Seishiro",
+                age: 24
+            },
+            
+            {
+                image: "https://images3.alphacoders.com/946/thumb-440-94605.webp",
+                username: "Ichigo Kurosaki",
+                age: 28
+            },
+            
+            {
+                image: "https://images6.alphacoders.com/100/thumb-440-1001037.webp",
+                username: "Aizen Sousuke",
+                age: 30
+            },
+        ];
+
+        const output = document.getElementById('output');
+
+        array.forEach((item) => {
+            const card = document.createElement('div');
+            card.className = "card";
+
+            card.innerHTML = `<img src= "${item.image}" alt="${item.username}">
+                <h3>${item.username}</h3>
+                <p>${item.age}</p>`;
+            
+                output.appendChild(card);
+        });
+    </script>
+</body>
+</html>
