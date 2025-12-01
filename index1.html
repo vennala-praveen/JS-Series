@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOUBLE CLICK Event</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        img{
+            margin-top: 15%;
+        }
+
+    </style>
+</head>
+<body>
+    <img id="post" src="https://avatarfiles.alphacoders.com/366/thumb-350-366450.webp" width="300" />
+
+    <script>
+        const post = document.getElementById("post");
+
+        post.addEventListener("dblclick", () => {
+            const heart = document.createElement("div");
+            heart.innerHTML = "❤️";
+            heart.style.position = "absolute";
+            heart.style.top = "50%";
+            heart.style.left = "50%";
+            heart.style.transform = "translate(-50%, -50%)";
+            heart.style.fontSize = "80px";
+            document.body.appendChild(heart);
+
+            // Remove heart after 2 second
+            setTimeout(() => {
+            heart.remove();
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
