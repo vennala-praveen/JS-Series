@@ -7,7 +7,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: 10px;
       background: #f9f9f9;
       display: flex;
       justify-content: center;   
@@ -16,10 +16,19 @@
       min-height: 100vh;         
     }
 
+    .container {
+      display: flex;
+      gap: 30px;
+      width: 100%;
+      max-width: 1000px;
+      margin-left: 250px;
+    }
+
     .food-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       gap: 20px;
+      flex: 4;
     }
 
     .food-item img {
@@ -47,14 +56,14 @@
     }
 
     #info-card {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
+      flex: 1;
       background: #fff;
       padding: 15px;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       transition: opacity 0.3s;
+      min-width: 200px;
+      min-height: 150px;
     }
 
     .hidden {
@@ -66,14 +75,16 @@
 <body>
 
   <h2>🍔 Food Grid</h2>
-  <div class="food-grid">
-    <div class="food-item"><img src="https://picfiles.alphacoders.com/350/thumb-1920-350606.jpg" alt="Pizza"></div>
-    <div class="food-item"><img src="https://images2.alphacoders.com/135/thumb-440-1353005.webp" alt="Burger"></div>
-    <div class="food-item"><img src="https://images5.alphacoders.com/134/thumb-440-1341443.webp" alt="Sushi"></div>
-    <div class="food-item"><img src="https://images5.alphacoders.com/134/thumb-440-1341443.webp" alt="Salad"></div>
-  </div>
+  <div class="container">
+    <div class="food-grid">
+      <div class="food-item"><img src="https://picfiles.alphacoders.com/350/thumb-1920-350606.jpg" alt="Pizza"></div>
+      <div class="food-item"><img src="https://images2.alphacoders.com/135/thumb-440-1353005.webp" alt="Burger"></div>
+      <div class="food-item"><img src="https://images5.alphacoders.com/134/thumb-440-1341443.webp" alt="Sushi"></div>
+      <div class="food-item"><img src="https://images5.alphacoders.com/134/thumb-440-1341443.webp" alt="Salad"></div>
+    </div>
 
-  <div id="info-card" class="hidden"></div>
+    <div id="info-card" class="hidden"></div>
+  </div>
 
   <script>
     const foodItems = document.querySelectorAll(".food-item img");
@@ -81,8 +92,8 @@
 
     foodItems.forEach(img => {
       
+      
       img.addEventListener("dblclick", (e) => {
-        
         const heart = document.createElement("div");
         heart.classList.add("heart");
         heart.innerHTML = "❤️";
@@ -90,10 +101,17 @@
         heart.style.top = e.pageY + "px";
         document.body.appendChild(heart);
 
-        
         setTimeout(() => heart.remove(), 2000);
 
-        
+        infoCard.innerHTML = `
+          <h3>${img.alt}</h3>
+          <p>Delicious ${img.alt} with fresh ingredients.</p>
+        `;
+        infoCard.classList.remove("hidden");
+      });
+
+      
+      img.addEventListener("mouseenter", () => {
         infoCard.innerHTML = `
           <h3>${img.alt}</h3>
           <p>Delicious ${img.alt} with fresh ingredients.</p>
