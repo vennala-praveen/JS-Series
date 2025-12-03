@@ -3,195 +3,213 @@
 <head>
   <meta charset="UTF-8">
   <title>Hand Cricket Game</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      color: #fff;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
-    h1 {
-      margin-top: 20px;
-      font-size: 2.5em;
-      text-shadow: 2px 2px 4px #000;
-    }
-    .game-container {
-      margin-top: 30px;
-    }
-    .choices {
-      margin: 20px 0;
-    }
-    .choices button {
-      background: #ff9800;
-      border: none;
-      padding: 15px 25px;
-      margin: 8px;
-      font-size: 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.2s, background 0.3s;
-    }
-    .choices button:hover {
-      background: #e68900;
-      transform: scale(1.1);
-    }
-    .scoreboard {
-      margin: 20px auto;
-      padding: 15px;
-      width: 300px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-      font-size: 20px;
-    }
-    .result {
-      margin-top: 25px;
-      font-size: 22px;
-      font-weight: bold;
-    }
-    .highlight {
-      color: #ffeb3b;
-    }
-    .commentary {
-      margin-top: 20px;
-      max-height: 200px;
-      overflow-y: auto;
-      background: rgba(0,0,0,0.3);
-      padding: 10px;
-      border-radius: 8px;
-      text-align: left;
-      width: 60%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .commentary p {
-      margin: 5px 0;
-      font-size: 16px;
-    }
-    .restart-btn {
-      margin-top: 20px;
-      background: #4caf50;
-      color: #fff;
-      border: none;
-      padding: 12px 20px;
-      font-size: 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .restart-btn:hover {
-      background: #388e3c;
-    }
-  </style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        .game-container {
+            margin-top: 30px;
+        }
+
+        .choices {
+            margin: 20px 0;
+        }
+
+        .choices button {
+            background: #ff9800;
+            border: none;
+            padding: 15px 25px;
+            margin: 8px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .choices button:hover {
+            background: #e68900;
+            transform: scale(1.1);
+        }
+
+        .scoreboard {
+            margin: 20px auto;
+            padding: 15px;
+            width: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            font-size: 20px;
+        }
+
+        .result {
+            margin-top: 25px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: #ffeb3b;
+        }
+
+        .commentary {
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: left;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .commentary p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .restart-btn {
+            margin-top: 20px;
+            background: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .restart-btn:hover {
+            background: #388e3c;
+        }
+    </style>
 </head>
+
 <body>
-  <h1>🏏 Hand Cricket Game</h1>
-  <div class="game-container">
-    <p id="innings">Player Batting (Innings 1)</p>
-    <div class="choices">
-      <!-- Buttons 1–10 -->
-      <button onclick="play(1)">1</button>
-      <button onclick="play(2)">2</button>
-      <button onclick="play(3)">3</button>
-      <button onclick="play(4)">4</button>
-      <button onclick="play(5)">5</button>
-      <button onclick="play(6)">6</button>
+    <h1>🏏 Hand Cricket Game</h1>
+    <div class="game-container">
+        <p id="innings">Player Batting (Innings 1)</p>
+        
+        <div class="choices">
+        <!-- Buttons 1–10 -->
+        <button onclick="play(1)">1</button>
+        <button onclick="play(2)">2</button>
+        <button onclick="play(3)">3</button>
+        <button onclick="play(4)">4</button>
+        <button onclick="play(5)">5</button>
+        <button onclick="play(6)">6</button>
+        </div>
+
+        <div class="scoreboard">
+        <p>Player Score: <span id="playerScore">0</span></p>
+        <p>Computer Score: <span id="computerScore">0</span></p>
+        <p>Target: <span id="target">--</span></p>
+        </div>
+
+        <div class="result" id="result"></div>
+        <div class="commentary" id="commentary"></div>
+        <button class="restart-btn" onclick="restartGame()">Restart Game</button>
+
     </div>
-    <div class="scoreboard">
-      <p>Player Score: <span id="playerScore">0</span></p>
-      <p>Computer Score: <span id="computerScore">0</span></p>
-      <p>Target: <span id="target">--</span></p>
-    </div>
-    <div class="result" id="result"></div>
-    <div class="commentary" id="commentary"></div>
-    <button class="restart-btn" onclick="restartGame()">Restart Game</button>
-  </div>
 
-  <script>
-    let playerScore = 0;
-    let computerScore = 0;
-    let target = null;
-    let playerBatting = true; 
+    <script>
+        let playerScore = 0;
+        let computerScore = 0;
+        let target = null;
+        let playerBatting = true; 
 
-    function play(playerChoice) {
-      const computerChoice = Math.floor(Math.random() * 6) + 1;
-      const resultDiv = document.getElementById("result");
+        function play(playerChoice) {
+            const computerChoice = Math.floor(Math.random() * 6) + 1;
+            const resultDiv = document.getElementById("result");
 
-      if (playerBatting) {
-        if (playerChoice === computerChoice) {
-          resultDiv.innerHTML = `You are OUT! Computer will chase your score of <span class="highlight">${playerScore}</span>`;
-          target = playerScore + 1;
-          document.getElementById("target").innerText = target;
-          playerBatting = false; 
-          document.getElementById("innings").innerText = "Computer Batting (Innings 2)";
-          addCommentary(`OUT! Player finished with ${playerScore}. Target set: ${target}`);
-        } else {
-          playerScore += playerChoice;
-          document.getElementById("playerScore").innerText = playerScore;
-          resultDiv.innerHTML = `You chose ${playerChoice}, Computer chose ${computerChoice}. You scored ${playerChoice} runs!`;
-          addCommentary(`Player scored ${playerChoice} runs (Computer chose ${computerChoice})`);
-          checkMilestone("Player", playerScore);
+            if (playerBatting) {
+                if (playerChoice === computerChoice) {
+                resultDiv.innerHTML = `You are OUT! Computer will chase your score of <span class="highlight">${playerScore}</span>`;
+                target = playerScore + 1;
+                document.getElementById("target").innerText = target;
+                playerBatting = false; 
+                document.getElementById("innings").innerText = "Computer Batting (Innings 2)";
+                addCommentary(`OUT! Player finished with ${playerScore}. Target set: ${target}`);
+                } else {
+                playerScore += playerChoice;
+                document.getElementById("playerScore").innerText = playerScore;
+                resultDiv.innerHTML = `You chose ${playerChoice}, Computer chose ${computerChoice}. You scored ${playerChoice} runs!`;
+                addCommentary(`Player scored ${playerChoice} runs (Computer chose ${computerChoice})`);
+                checkMilestone("Player", playerScore);
+                }
+            } else {
+                if (playerChoice === computerChoice) {
+                resultDiv.innerHTML = `Computer is OUT! 🎉 You WIN by defending the target!`;
+                addCommentary(`Computer OUT at ${computerScore}. Player wins!`);
+                disableButtons();
+                } else {
+                computerScore += computerChoice;
+                document.getElementById("computerScore").innerText = computerScore;
+                resultDiv.innerHTML = `You chose ${playerChoice}, Computer chose ${computerChoice}. Computer scored ${computerChoice} runs!`;
+                addCommentary(`Computer scored ${computerChoice} runs (Player chose ${playerChoice})`);
+                checkMilestone("Computer", computerScore);
+
+                if (computerScore >= target) {
+                    resultDiv.innerHTML = `Computer chased successfully! 😢 You LOSE.`;
+                    addCommentary(`Computer reached ${computerScore}, chased target ${target}. Player loses.`);
+                    disableButtons();
+                }
+                }
+            }
         }
-      } else {
-        if (playerChoice === computerChoice) {
-          resultDiv.innerHTML = `Computer is OUT! 🎉 You WIN by defending the target!`;
-          addCommentary(`Computer OUT at ${computerScore}. Player wins!`);
-          disableButtons();
-        } else {
-          computerScore += computerChoice;
-          document.getElementById("computerScore").innerText = computerScore;
-          resultDiv.innerHTML = `You chose ${playerChoice}, Computer chose ${computerChoice}. Computer scored ${computerChoice} runs!`;
-          addCommentary(`Computer scored ${computerChoice} runs (Player chose ${playerChoice})`);
-          checkMilestone("Computer", computerScore);
 
-          if (computerScore >= target) {
-            resultDiv.innerHTML = `Computer chased successfully! 😢 You LOSE.`;
-            addCommentary(`Computer reached ${computerScore}, chased target ${target}. Player loses.`);
-            disableButtons();
-          }
+        function checkMilestone(player, score) {
+            if (score === 50) {
+                addCommentary(`${player} reached a Half Century (50 runs)! 🏏`);
+            } else if (score === 100) {
+                addCommentary(`${player} scored a Century (100 runs)! 🎉`);
+            } else if (score === 150) {
+                addCommentary(`${player} crossed 150 runs! 🔥`);
+            }
         }
-      }
-    }
 
-    function checkMilestone(player, score) {
-      if (score === 50) {
-        addCommentary(`${player} reached a Half Century (50 runs)! 🏏`);
-      } else if (score === 100) {
-        addCommentary(`${player} scored a Century (100 runs)! 🎉`);
-      } else if (score === 150) {
-        addCommentary(`${player} crossed 150 runs! 🔥`);
-      }
-    }
+        function addCommentary(text) {
+            const commentaryDiv = document.getElementById("commentary");
+            const p = document.createElement("p");
+            p.textContent = text;
+            commentaryDiv.appendChild(p);
+            commentaryDiv.scrollTop = commentaryDiv.scrollHeight;
+        }
 
-    function addCommentary(text) {
-      const commentaryDiv = document.getElementById("commentary");
-      const p = document.createElement("p");
-      p.textContent = text;
-      commentaryDiv.appendChild(p);
-      commentaryDiv.scrollTop = commentaryDiv.scrollHeight;
-    }
+        function disableButtons() {
+            const buttons = document.querySelectorAll(".choices button");
+            buttons.forEach(btn => btn.disabled = true);
+        }
 
-    function disableButtons() {
-      const buttons = document.querySelectorAll(".choices button");
-      buttons.forEach(btn => btn.disabled = true);
-    }
+        function restartGame() {
+            playerScore = 0;
+            computerScore = 0;
+            target = null;
+            playerBatting = true;
+            document.getElementById("playerScore").innerText = 0;
+            document.getElementById("computerScore").innerText = 0;
+            document.getElementById("target").innerText = "--";
+            document.getElementById("result").innerText = "";
+            document.getElementById("innings").innerText = "Player Batting (Innings 1)";
+            document.getElementById("commentary").innerHTML = "";
+            const buttons = document.querySelectorAll(".choices button");
+            buttons.forEach(btn => btn.disabled = false);
+        }
 
-    function restartGame() {
-      playerScore = 0;
-      computerScore = 0;
-      target = null;
-      playerBatting = true;
-      document.getElementById("playerScore").innerText = 0;
-      document.getElementById("computerScore").innerText = 0;
-      document.getElementById("target").innerText = "--";
-      document.getElementById("result").innerText = "";
-      document.getElementById("innings").innerText = "Player Batting (Innings 1)";
-      document.getElementById("commentary").innerHTML = "";
-      const buttons = document.querySelectorAll(".choices button");
-      buttons.forEach(btn => btn.disabled = false);
-    }
-  </script>
+    </script>
 </body>
 </html>
