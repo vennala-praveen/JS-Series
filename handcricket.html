@@ -98,10 +98,6 @@
       <button onclick="play(4)">4</button>
       <button onclick="play(5)">5</button>
       <button onclick="play(6)">6</button>
-      <button onclick="play(7)">7</button>
-      <button onclick="play(8)">8</button>
-      <button onclick="play(9)">9</button>
-      <button onclick="play(10)">10</button>
     </div>
     <div class="scoreboard">
       <p>Player Score: <span id="playerScore">0</span></p>
@@ -110,7 +106,7 @@
     </div>
     <div class="result" id="result"></div>
     <div class="commentary" id="commentary"></div>
-    <button class="restart-btn" onclick="restartGame()">🔁 Restart Game</button>
+    <button class="restart-btn" onclick="restartGame()">Restart Game</button>
   </div>
 
   <script>
@@ -120,9 +116,8 @@
     let playerBatting = true; 
 
     function play(playerChoice) {
-      const computerChoice = Math.floor(Math.random() * 10) + 1;
+      const computerChoice = Math.floor(Math.random() * 6) + 1;
       const resultDiv = document.getElementById("result");
-      const commentaryDiv = document.getElementById("commentary");
 
       if (playerBatting) {
         if (playerChoice === computerChoice) {
@@ -137,6 +132,7 @@
           document.getElementById("playerScore").innerText = playerScore;
           resultDiv.innerHTML = `You chose ${playerChoice}, Computer chose ${computerChoice}. You scored ${playerChoice} runs!`;
           addCommentary(`Player scored ${playerChoice} runs (Computer chose ${computerChoice})`);
+          checkMilestone("Player", playerScore);
         }
       } else {
         if (playerChoice === computerChoice) {
@@ -148,6 +144,7 @@
           document.getElementById("computerScore").innerText = computerScore;
           resultDiv.innerHTML = `You chose ${playerChoice}, Computer chose ${computerChoice}. Computer scored ${computerChoice} runs!`;
           addCommentary(`Computer scored ${computerChoice} runs (Player chose ${playerChoice})`);
+          checkMilestone("Computer", computerScore);
 
           if (computerScore >= target) {
             resultDiv.innerHTML = `Computer chased successfully! 😢 You LOSE.`;
@@ -155,6 +152,16 @@
             disableButtons();
           }
         }
+      }
+    }
+
+    function checkMilestone(player, score) {
+      if (score === 50) {
+        addCommentary(`${player} reached a Half Century (50 runs)! 🏏`);
+      } else if (score === 100) {
+        addCommentary(`${player} scored a Century (100 runs)! 🎉`);
+      } else if (score === 150) {
+        addCommentary(`${player} crossed 150 runs! 🔥`);
       }
     }
 
