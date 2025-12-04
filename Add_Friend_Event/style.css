@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+
+#main{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    background-image: url('https://images3.alphacoders.com/646/thumbbig-646653.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+.card{
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+button {
+    background: linear-gradient(45deg, #ff9800, #ff5722);
+    color: #fff;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #ff5722, #e91e63);
+    transform: scale(1.05);
+}
+        
