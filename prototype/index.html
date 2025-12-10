@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP's - Abstraction</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        #message { margin-top: 20px; font-size: 18px; color: brown; }			   
+    </style>
+</head>
+<body>
+
+  <h2>Coffee Machine</h2>
+  <button id="startBtn">Start</button>
+  <div id="message"></div>
+
+  <script>
+    
+    class CoffeeMachine {
+      prepareCoffee() {
+        return "☕ Coffee is preparing...";
+      }
+    }
+
+    const machine = new CoffeeMachine();
+    const btn = document.getElementById("startBtn");
+    const msg = document.getElementById("message");
+
+    btn.addEventListener("click", () => {
+      msg.textContent = machine.prepareCoffee();
+    });
+  </script>
+</body>
+</html>
