@@ -1,48 +1,6 @@
 // OOP's --> Object-Oriented Programming (OOP) in JavaScript is a paradigm that organizes code into reusable objects containing properties (data) and methods (behavior).
 
 
-//polymorphism --> Same method name behaves differently depending on the object (e.g., method overriding).
-
-// class Payment {
-//   processPayment(amount) {
-//     console.log(`Processing payment of ₹${amount}`);
-//   }
-// }
-
-
-// class CreditCardPayment extends Payment {
-//   processPayment(amount) {
-//     console.log(`Paid ₹${amount} using Credit Card`);
-//   }
-// }
-
-
-// class UPIPayment extends Payment {
-//   processPayment(amount) {
-//     console.log(`Paid ₹${amount} using UPI`);
-//   }
-// }
-
-
-// class PayPalPayment extends Payment {
-//   processPayment(amount) {
-//     console.log(`Paid ₹${amount} using PayPal`);
-//   }
-// }
-
-
-// const payments = [
-//   new CreditCardPayment(),
-//   new UPIPayment(),
-//   new PayPalPayment()
-// ];
-
-// payments.forEach(payment => {
-//   payment.processPayment(500); 
-// });
-
-
-
 // Class → A blueprint for creating objects, defining properties and methods.
 
 // Object → An instance of a class, representing a real entity with its own data and behavior.
@@ -144,6 +102,49 @@ class Student {
 const s = new Student();
 s.setId("123521");          
 console.log(s.getId());      
+
+
+
+//polymorphism --> Same method name behaves differently depending on the object (e.g., method overriding).
+
+// class Payment {
+//   processPayment(amount) {
+//     console.log(`Processing payment of ₹${amount}`);
+//   }
+// }
+
+
+// class CreditCardPayment extends Payment {
+//   processPayment(amount) {
+//     console.log(`Paid ₹${amount} using Credit Card`);
+//   }
+// }
+
+
+// class UPIPayment extends Payment {
+//   processPayment(amount) {
+//     console.log(`Paid ₹${amount} using UPI`);
+//   }
+// }
+
+
+// class PayPalPayment extends Payment {
+//   processPayment(amount) {
+//     console.log(`Paid ₹${amount} using PayPal`);
+//   }
+// }
+
+
+// const payments = [
+//   new CreditCardPayment(),
+//   new UPIPayment(),
+//   new PayPalPayment()
+// ];
+
+// payments.forEach(payment => {
+//   payment.processPayment(500); 
+// });
+
 
 
 // Abstraction --> Hiding implementation details and exposing only necessary functionality (e.g., methods in a class).
