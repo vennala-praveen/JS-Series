@@ -125,7 +125,60 @@
 
 // Encapsulation --> Bundling data and methods together, restricting direct access using closures or class fields.
 
+class Student {
+  // private field (with #)
+  #id;
 
+  // setter
+  setId(id) {
+    this.#id = id;
+  }
+
+  // getter
+  getId() {
+    return this.#id;
+  }
+}
+
+// Usage
+const s = new Student();
+s.setId("123521");          
+console.log(s.getId());      
 
 
 // Abstraction --> Hiding implementation details and exposing only necessary functionality (e.g., methods in a class).
+
+
+// Abstract idea: all shapes have an area
+class Shape {
+  area() {
+    throw new Error("Method 'area()' must be implemented.");
+  }
+}
+
+class Circle extends Shape {
+  constructor(radius) {
+    super();
+    this.radius = radius;
+  }
+  area() {
+    return Math.PI * this.radius * this.radius;
+  }
+}
+
+class Square extends Shape {
+  constructor(side) {
+    super();
+    this.side = side;
+  }
+  area() {
+    return this.side * this.side;
+  }
+}
+
+// Usage
+const shapes = [new Circle(15), new Square(4)];
+
+shapes.forEach(shape => {
+  console.log("Area:", shape.area()); 
+});
