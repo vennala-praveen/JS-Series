@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #3a3a5a);
+  color: #fff;
+  text-align: center;
+  padding: 50px;
+}
+
+.player {
+  background: #2a2a40;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #ff4081;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #ff4081;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff77a9;
+}
+
+#progress {
+  margin-top: 20px;
+  height: 10px;
+  width: 80%;
+  background: #444;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
